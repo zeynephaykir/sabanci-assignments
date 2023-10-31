@@ -1,0 +1,34 @@
+Zeynep Haykir - cs404 - assignment 4
+
+RUN 1 - Player 1 picked
+
+Matrix: 1 * 1,* 2 *,* * 1
+Choose a player (type 1 or 2): 1
+You are Player 1
+[['', ''], ['', '']]
+Make your move (type i,j): 0,1
+[['', '/'], ['', '']]
+Wait for AI to make its move...
+[['\\', '/'], ['', '']]
+Make your move (type i,j): 1,1
+[['\\', '/'], ['', '/']]
+Wait for AI to make its move...
+[['\\', '/'], ['\\', '/']]
+userPoint: -2
+You lost!
+
+RUN 2 - Player 2 picked
+Matrix: 1 * 1,* 2 *,* * 1
+Choose a player (type 1 or 2): 2
+You are Player 2
+[['', ''], ['', '']]
+Wait for AI to make its move...
+[['/', ''], ['', '']]
+Make your move (type i,j): 1,1
+[['/', ''], ['', '\\']]
+Wait for AI to make its move...
+[['/', '/'], ['', '\\']]
+Make your move (type i,j): 1,0
+[['/', '/'], ['\\', '\\']]
+userPoint: -2
+You lost!

@@ -1,0 +1,109 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@449101d4";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@650b1f69";
+	node_size = (130.0 55.0);
+}
+
+node F
+{
+	states = ("True" "False" );
+	position = (319 -156);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable11";
+	label = "Presence of Fever";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node C
+{
+	states = ("True" "False" );
+	position = (515 -284);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable14";
+	label = "Cough";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node G
+{
+	states = ("True" "False" );
+	position = (318 -284);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable13";
+	label = "Fatigue";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node E
+{
+	states = ("True" "False" );
+	position = (184 -58);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable9";
+	label = "Exposure to infection";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node I
+{
+	states = ("Strong" "Weak" );
+	position = (451 -56);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable10";
+	label = "Immune system strength";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node T
+{
+	states = ("High" "Low" );
+	position = (121 -276);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable12";
+	label = "Body tempature";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( F | E I )
+{
+	data = (((	0.8	0.2	)
+		(	0.95	0.05	))
+		((	0.3	0.7	)
+		(	0.6	0.4	)));
+}
+potential ( C | F )
+{
+	data = ((	0.6	0.4	)
+		(	0.3	0.7	));
+}
+potential ( G | F )
+{
+	data = ((	0.7	0.3	)
+		(	0.4	0.6	));
+}
+potential ( E | )
+{
+	data = (	0.3	0.7	);
+}
+potential ( I | )
+{
+	data = (	0.6	0.4	);
+}
+potential ( T | F )
+{
+	data = ((	0.9	0.1	)
+		(	0.2	0.8	));
+}
