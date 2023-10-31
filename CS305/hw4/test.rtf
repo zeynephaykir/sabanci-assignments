@@ -1,0 +1,60 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww12360\viewh11020\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+(check-triple? '((1 2) (3 4 5)))\
+\
+(check-triple? '((5 12 12) (6 6 6) ()))\
+\
+(check-triple? '((5 3 9) (9 55 32) ('a 28 67)))\
+\
+(check-triple? '((5 12 13) (3 4 5) (16 63 65) (12 35 37)))\
+\'97\'97\
+\
+(check-length? '(a 'bc) 2)\
+\
+(check-length? '(3 4 5) 3)\
+\
+(check-length? '(2 3 4 5) 3)\
+\
+(check-length? '(3 4 5) 4)\
+\'97\'97\
+\
+(check-sides? '(6 4 27))\
+\
+(check-sides? '(6 0 27))\
+\
+(check-sides? '(() 'c 3))\
+\
+(check-sides? '(#t 10 14))\
+\'97\'97\
+\
+(sort-all-triples '((4 3 5) (9 4 6) (13 12 1) (6 6 6)))\
+\
+(sort-all-triples '((4 7 9) (15 36 9)))\
+\'97\'97\
+\
+(sort-triple '(4 3 5))\
+\
+(sort-triple '(8 8 8))\
+\
+(sort-triple '(6 10 14))\
+\'97\'97\
+\
+(filter-triangle '((3 4 5) (4 6 9) (1 12 13)))\
+\
+(filter-triangle '((8 10 21) (22 31 53)))\
+\'97\'97\
+\
+(triangle? '(4 6 8))\
+\
+(triangle? '(12 21 34))\
+\
+(triangle? '(9 10 18))\
+\
+}

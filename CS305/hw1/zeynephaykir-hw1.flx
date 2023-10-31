@@ -1,0 +1,87 @@
+tCOMMA    ","
+tPLUS     "+"
+tMUL      "*"
+tINC      "++"
+tLBRAC    "["
+tGT       ">"
+tGEQ      ">="
+tEQUALITY "=="
+tMINUS    "-"
+tDIV      "/"
+tDEC      "--"
+tRBRAC    "]"
+tLT       "<"
+tLEQ      "<="
+tGET      "Get"
+tSET      "Set"
+tFUNCTION "Function"
+tPRINT    "Print"
+tFOR      "For"
+tIF       "If"
+tRETURN   "Return"
+
+tIDENT [a-zA-Z_][a-zA-Z0-9_]*
+
+%{
+int line = 1;
+%}
+
+%%
+"\n"           line++;
+{tCOMMA}        printf("%d tCOMMA\n", line);
+\"{tPLUS}\"     printf("%d tPLUS\n", line);
+\"{tMUL}\"      printf("%d tMUL\n", line);
+\"{tINC}\"      printf("%d tINC\n", line);
+{tLBRAC}        printf("%d tLBRAC\n", line);
+\"{tGT}\"       printf("%d tGT\n", line);
+\"{tGEQ}\"      printf("%d tGEQ\n", line);
+\"{tEQUALITY}\" printf("%d tEQUALITY\n", line);
+\"{tMINUS}\"    printf("%d tMINUS\n", line);
+\"{tDIV}\"      printf("%d tDIV\n", line);
+\"{tDEC}\"      printf("%d tDEC\n", line);
+{tRBRAC}        printf("%d tRBRAC\n", line);
+\"{tLT}\"       printf("%d tLT\n", line);
+\"{tLEQ}\"      printf("%d tLEQ\n", line);
+\"{tGET}\"      printf("%d tGET\n", line);
+\"{tSET}\"      printf("%d tSET\n", line);
+\"{tFUNCTION}\" printf("%d tFUNCTION\n", line);
+\"{tPRINT}\"    printf("%d tPRINT\n", line);
+\"{tFOR}\"      printf("%d tFOR\n", line);
+\"{tIF}\"       printf("%d tIF\n", line);
+\"{tRETURN}\"   printf("%d tRETURN\n", line);
+
+-?[0-9]+(("."[0-9]+)|([0-9]*)) { 
+
+float f = atof(yytext);
+if(strstr(yytext,".")&& f==(int)f)
+{
+    printf("%d tNUM (%s) (%g.0)\n",line,yytext,f);
+}else{printf("%d tNUM (%s) (%g)\n",line,yytext,f);}
+
+}
+
+
+[ \t]+
+
+\"{tIDENT}\"  printf("%d tIDENT (%s)\n",line, strtok(yytext,"\""));
+. printf("%d ILLEGAL CHARACTER (%s)\n",line,yytext);
+'[^']*' {
+    char* string = strtok(yytext,"'");
+    char* new = string != 0 ? string: "";
+    printf("%d tSTRING (%s)\n",line,new);
+    if(strstr(new,"\n"))
+    {
+        line++;
+    }}
+    
+    
+
+
+
+%%
+
+int main()
+{
+yylex();
+return(0);
+}
